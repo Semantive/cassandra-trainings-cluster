@@ -1,0 +1,13 @@
+graphite:
+-
+  period: 60
+  timeunit: 'SECONDS'
+  prefix: 'Node-{LOCAL_IP}'
+  hosts:
+  - host: '{INFLUX_IP}'
+    port: 2003
+  predicate:
+    color: "white"
+    useQualifiedName: true
+    patterns:
+    - ".*"
