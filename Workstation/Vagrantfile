@@ -3,9 +3,13 @@ Vagrant.configure("2") do |config|
   
   config.vm.provider :virtualbox do |vb|
     vb.name = "Cassandra-Workstation"
-    vb.memory = 4096
+    vb.memory = 6144
     vb.gui = true
   end
+
+  config.vm.provision "file",
+    source: "assets/DevCenter-1.6.0-linux-gtk-x86_64.tar.gz",
+    destination: "/tmp/devcenter.tar.gz"
 
   config.vm.provision "shell" do |shell|
     shell.path  = "scripts/bootstrap.sh"
