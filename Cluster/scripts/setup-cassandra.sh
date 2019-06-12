@@ -16,7 +16,8 @@ curl -s https://www.apache.org/dist/cassandra/KEYS | apt-key add -
 # Update OS
 apt-get -y -q update
 apt-get -y -q -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
-apt-get -y -q install openjdk-8-jdk-headless collectd collectd-utils zsh cassandra
+apt-get -y -q install --no-install-recommends openjdk-8-jdk-headless collectd collectd-utils zsh 
+apt-get -y -q install --no-install-recommends cassandra
 
 # Setup hosts
 echo "192.168.11.17 cassandra-1" >> /etc/hosts
